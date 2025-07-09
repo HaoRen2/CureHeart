@@ -29,16 +29,15 @@ Video para demostrar el funcionamiento de la aplicación. **Haz clic en la image
 
 Este proyecto me ha permitido aplicar y demostrar mis conocimientos en:
 
-* [cite_start]✨ **Desarrollo Backend**: Creación de una API RESTful segura con **NestJS** (Node.js) y TypeScript.
-* [cite_start]📱 **Desarrollo Frontend Móvil**: Creación de una aplicación híbrida para Android con **Ionic** y **Angular**.
-* [cite_start]🗃️ **Bases de Datos**: Diseño e implementación de una base de datos relacional (**MySQL**) gestionada con **Docker**.
-* [cite_start]🔗 **Integración de APIs**: Consumo de APIs externas para enriquecer la aplicación con datos reales.
-* [cite_start]🔐 **Seguridad**: Implementación de autenticación de usuarios y encriptación de contraseñas con **bcrypt**.
+* ✨ **Desarrollo Backend**: Creación de una API RESTful segura con **NestJS** (Node.js) y TypeScript.
+* 📱 **Desarrollo Frontend Móvil**: Creación de una aplicación híbrida para Android con **Ionic** y **Angular**.
+* 🗃️ **Bases de Datos**: Diseño e implementación de una base de datos relacional (**MySQL**) gestionada con **Docker**.
+* 🔗 **Integración de APIs**: Consumo de APIs externas para enriquecer la aplicación con datos reales.
+* 🔐 **Seguridad**: Implementación de autenticación de usuarios y encriptación de contraseñas con **bcrypt**.
   
 ## 🛠️ Instrucciones de despliegue
 
 ### Backend
-
 1. Asegúrate de tener Docker instalado.
 2. Instala las dependencias:
    ```bash
