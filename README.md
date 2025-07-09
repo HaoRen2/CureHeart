@@ -1,6 +1,6 @@
 # CureHeart: Aplicación de Gestión de Salud
 
-Hola, soy **Lei Wang**. 
+Buenas a todos/as. 
 **CureHeart** es una aplicación híbrida de gestión de salud. Permite a pacientes, médicos y administradores gestionar citas, medicamentos e informes médicos de forma online.
 
 **El objetivo**: facilitar la comunicación y gestión online entre hospitales, médicos y pacientes.
