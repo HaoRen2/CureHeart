@@ -9,11 +9,7 @@ Hola, soy **Lei Wang**.
 ## 🎥 Demostración Rápida
 
 Video para demostrar el funcionamiento de la aplicación. **Haz clic en la imagen** para ver un vídeo de la aplicación en funcionamiento:
-
-* **¿Cómo añadir el vídeo?**
-        ```markdown
-        [![Demostración de CureHeart]](https://youtu.be/t23poxlH83k)
-        ```
+        https://youtu.be/t23poxlH83k
 <br>
 ## 📱 Características principales
 
