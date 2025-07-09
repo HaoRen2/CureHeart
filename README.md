@@ -3,8 +3,7 @@
 Hola, soy **Lei Wang**. 
 **CureHeart** es una aplicación híbrida de gestión de salud. Permite a pacientes, médicos y administradores gestionar citas, medicamentos e informes médicos de forma online.
 
-[cite_start]**El objetivo**: facilitar la comunicación y gestión online entre hospitales, médicos y pacientes[cite: 40].
-
+**El objetivo**: facilitar la comunicación y gestión online entre hospitales, médicos y pacientes[cite: 40].
 <br>
 ## 🎥 Demostración Rápida
 
