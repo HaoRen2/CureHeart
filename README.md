@@ -6,7 +6,15 @@ Hola, soy **Lei Wang**.
 [cite_start]**El objetivo**: facilitar la comunicación y gestión online entre hospitales, médicos y pacientes[cite: 40].
 
 <br>
+## 🎥 Demostración Rápida
 
+Video para demostrar el funcionamiento de la aplicación. **Haz clic en la imagen** para ver un vídeo de la aplicación en funcionamiento:
+
+* **¿Cómo añadir el vídeo?**
+        ```markdown
+        [![Demostración de CureHeart]](https://youtu.be/t23poxlH83k)
+        ```
+<br>
 ## 📱 Características principales
 
 - Registro e inicio de sesión para diferentes tipos de usuarios.
