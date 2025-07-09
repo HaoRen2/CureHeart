@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "302469598474",
+    "project_id": "cureheartnotification",
+    "storage_bucket": "cureheartnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302469598474:android:7bd2d5817c75995b7f7ef3",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6Zcgy_AFgXK-j-eYz6ymjC4gBl49TCZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

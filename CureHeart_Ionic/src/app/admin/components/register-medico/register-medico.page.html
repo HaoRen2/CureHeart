@@ -1,0 +1,201 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/paciente/tab"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Registrar Medico</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="opacity: 0;">Invisible Button</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item class="text-center">
+    <ion-thumbnail slot="start">
+      <img src="../../../../assets/logo.png"/>
+    </ion-thumbnail>
+
+    <h3>Cure<ion-text color="primary">Heart</ion-text></h3>
+
+  </ion-item>
+
+  <form [formGroup]="registerForm"
+    (ngSubmit)="register()"
+    class=""
+    autocomplete="off"
+  >
+
+    <ion-grid>
+      <div class="mt-2">
+        <ion-text>Nombre</ion-text>
+        <ion-input class=""
+         formControlName="nombre"
+        label-placement="floating"
+        fill="outline"
+        type="text" placeholder="Nombre" />
+      </div>
+
+      <div class="mt-2">
+        <ion-label class="">Primer Apellido</ion-label>
+        <ion-input class=""
+         formControlName="apellido1"
+        label-placement="floating"
+        fill="outline"
+        type="text" placeholder="Primer Apellido" />
+      </div>
+
+      <div class="mt-2">
+        <ion-label class="">Segundo Apellido (opcional)</ion-label>
+        <ion-input
+          formControlName="apellido2"
+         label-placement="floating"
+        fill="outline"
+        class=""  type="text" placeholder="Segundo Apellido" />
+      </div>
+
+      <div class="mt-2">
+        <ion-text>Sexo</ion-text>
+        <ion-row>
+          <ion-col>
+            <ion-radio-group formControlName="genero">
+              <ion-row class="align-items-center text-center">
+                <ion-col>
+                  <ion-item>
+                <ion-label>Hombre</ion-label>
+                <ion-radio value="hombre"></ion-radio>
+              </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                  <ion-label>Mujer</ion-label>
+                <ion-radio value="mujer"></ion-radio>
+              </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-radio-group>
+
+          </ion-col>
+        </ion-row>
+
+      </div>
+
+      <div class="mt-2">
+        <ion-label>Especialidad</ion-label>
+        <ion-select formControlName="especialidad" class="ion-margin" label="Especialidad" placeholder="Elige">
+          @for (item of especialidad; track $index) {
+            <ion-select-option [value]="item">{{item}}</ion-select-option>
+          }
+        </ion-select>
+      </div>
+
+      <div class="mt-2">
+        <ion-label>Fecha de nacimiento</ion-label>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-button fill="outline" (click)="openCalendar()">
+              <ion-icon slot="icon-only" name="calendar-outline" size="medium"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-input placeholder="Elige una fecha" aria-label="Fecha" value="{{getFechaNacimiento() | date:'longDate'}}"  [disabled]="true"></ion-input>
+          </ion-col>
+
+        </ion-row>
+
+
+        <ion-datetime-button datetime="datetime" id="fake-click"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true" [isOpen]="showCalendar" (didDismiss)="cancelCalendar()">
+          <ng-template>
+            <ion-datetime
+              id="datetime"
+              (ionChange)="fechaCambiada($event)"
+              formControlName="fechaNacimiento"
+              presentation="day-month-year"
+              [showDefaultButtons]="true"
+              doneText="Confirm"
+              cancelText="Cancel"
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>
+
+
+      </div>
+
+      <div class="mt-3">
+        <ion-label class="">Numero de teléfono móvil</ion-label>
+        <ion-input
+          formControlName="telefono"
+          label-placement="floating"
+          fill="outline"
+          class=""  type="number"  />
+
+      </div>
+      <div class="mt-3">
+        <ion-label>Horario</ion-label>
+        <form [formGroup]="horarioForm">
+        <ion-list>
+          <ion-item>
+            <ion-label>Hora Inicial</ion-label>
+            <ion-select formControlName = horaInicio>
+              @for (item of horario; track $index) {
+                <ion-select-option [value]="item">{{item}}</ion-select-option>
+              }
+
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Hora de Termino</ion-label>
+            <ion-select formControlName="horaFin" >
+              @for (item of horario; track $index) {
+                <ion-select-option [value]="item">{{item}}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </form>
+      </div>
+
+
+      <form
+        [formGroup]="authForm"
+      >
+        <div class="mt-2">
+        <ion-label class="">Email</ion-label>
+        <ion-input
+          formControlName="email"
+          label-placement="floating"
+          fill="outline"
+          class=""  type="email" placeholder="name@xxx.com" />
+      </div>
+
+        <div class="mt-3">
+          <ion-label class="">Password</ion-label>
+          <ion-input
+            formControlName="password"
+            label-placement="floating"
+            fill="outline"
+            class=""  type="password" />
+        </div>
+      </form>
+
+
+        <div class="mt-3">
+          <ion-button
+           expand="block"
+            class="btn-primary"
+            type="submit"
+            [disabled]="registerForm.invalid || horarioForm.invalid || authForm.invalid"
+          >
+            Register
+          </ion-button>
+        </div>
+
+    </ion-grid>
+
+
+  </form>
+</ion-content>

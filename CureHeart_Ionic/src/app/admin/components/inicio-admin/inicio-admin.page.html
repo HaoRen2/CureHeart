@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="text-center">Administrador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-button routerLink="/admin/register-medico" class="my-3" expand="block" color="primary">Crear Médico</ion-button>
+  <ion-button routerLink="/admin/medico-gestion" class="my-3" expand="block" color="primary">Gestionar el horario</ion-button>
+  <ion-button (click)="cerrarSesion()" class="my-3" expand="block" color="primary">Cerrar Session</ion-button>
+
+</ion-content>

@@ -1,0 +1,35 @@
+
+
+
+.mat-horizontal-stepper, .mat-vertical-stepper {
+  height: 100vh !important;
+}
+
+.mat-horizontal-content-container, .mat-vertical-content-container {
+  overflow-y: auto;
+}
+
+.scroll-items {
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+}
+.scroll-items ion-col {
+    flex-wrap: nowrap;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: rgb(107, 233, 170); /* Cambia 'red' al color que desees */
+}
+
+.mat-step-header, .mat-step-header .mat-step-icon, .mat-step-header .mat-step-icon-selected {
+  background-color: #00bcd4 !important; /* Cambiar al color deseado */
+}
+.mat-stepper-vertical, .mat-stepper-horizontal {
+  background: #d9d9d9;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: black;
+}

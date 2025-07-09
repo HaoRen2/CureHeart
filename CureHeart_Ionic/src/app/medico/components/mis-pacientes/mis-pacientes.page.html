@@ -1,0 +1,94 @@
+<shared-header></shared-header>
+
+<ion-content color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div align="right" class="searchTable">
+          <ion-input
+            type="text"
+            class="ion-text-center"
+            placeholder="Buscar por nombre"
+            (ionInput)="updateFilter($event)"
+          ></ion-input>
+        </div>
+
+        <ion-title class="mt-2">Mis Pacientes: </ion-title>
+        <ion-card>
+          <ngx-datatable
+            #table
+            class="material"
+            [columnMode]="ColumnMode.force"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [loadingIndicator]="loadingIndicator"
+            [scrollbarH]="true"
+            [limit]="10"
+            [rows]="rows"
+          >
+            <ngx-datatable-column prop="apellido1">
+              <ng-template
+                let-column="column"
+                ngx-datatable-header-template
+                let-sort="sortFn"
+              >
+                <span class="tableHeader">Apellidos</span>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column prop="apellido2">
+              <ng-template
+                let-column="column"
+                ngx-datatable-header-template
+                let-sort="sortFn"
+              >
+                <span class="tableHeader">Apellidos</span>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column prop="nombre">
+              <ng-template
+                let-column="column"
+                ngx-datatable-header-template
+                let-sort="sortFn"
+              >
+                <span class="tableHeader">Nombre</span>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column prop="genero">
+              <ng-template
+                let-column="column"
+                ngx-datatable-header-template
+                let-sort="sortFn"
+              >
+                <span class="tableHeader">Genero</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.genero }}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column>
+              <ng-template ngx-datatable-header-template>
+                <span class="tableHeader">Accion</span>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <ion-button size="small" fill="outline" (click)="medicamento(row)"
+                  >Medicamento</ion-button
+                >
+                <ion-button
+                  size="small"
+                  fill="outline"
+                  (click)="informe(row)"
+                  >Informe</ion-button
+                >
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,97 @@
+<shared-header></shared-header>
+
+
+<ion-content class="ion-padding">
+
+  <ion-segment [(ngModel)]="selectedSegment" value="default">
+    <ion-segment-button value="default">
+      <ion-label>Mis medicamentos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="buscar">
+      <ion-label>Buscar</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  @if (selectedSegment === "default") {
+    @for (item of miDieta; track $index) {
+      <ion-card>
+        <ion-card-header>
+          <ion-img *ngIf="item.foto" [src]="item.foto"></ion-img>
+          <ion-card-title>{{item.nombre}}</ion-card-title>
+          <ion-label>{{item.laboratorio}}</ion-label>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Afecta conduccion: {{item.afectaConduccion}}</p>
+          <p>Dosis: {{item.dosis}}</p>
+          <ion-item>
+            <ion-label>Observaciones: {{item.observacion}}</ion-label>
+          </ion-item>
+
+          <ion-button *ngIf="item.linkhtml" [href]="item.linkhtml" target="_blank">Documentos</ion-button>
+          <ion-button (click)="presentAlert(item.id)" color="primary">Eliminar</ion-button>
+        </ion-card-content>
+
+      </ion-card>
+    }
+
+  }@else if (selectedSegment === "buscar") {
+    <ion-searchbar (ionInput)="onInput($event)" debounce="1000" color="light" search-icon="search-circle" placeholder="Buscar el medicamento"></ion-searchbar>
+
+ @for (item of medicamento; track $index){
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{item.medicamento}}</ion-card-title>
+          <ion-label>{{item.laboratorio}}</ion-label>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>Problema suministro: {{item.problemasSuministro}}</ion-item>
+          <ion-item>Afecta Conduccion: {{item.afectaConduccion}}</ion-item>
+          <div class="mt-2 text-center">
+            <ion-button id="open-modal" (click)="detalle(item.numRegistro)" color="primary">Detalle</ion-button>
+          </div>
+
+        </ion-card-content>
+      </ion-card>
+
+    }
+
+    <!--<ion-button id="open-modal" (click)="detalle('123')" color="primary">Detalle</ion-button>-->
+
+  }
+
+</ion-content>
+
+<ion-modal [isOpen]="isModalOpen" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Guardar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-card>
+        <ion-card-header>
+          <ion-img *ngIf="cimaApi.fotos && cimaApi.fotos.length > 0" [src]="cimaApi.fotos[0].url"></ion-img>
+          <ion-card-title>{{cimaApi.nombre}}</ion-card-title>
+          <ion-label>{{cimaApi.labtitular}}</ion-label>
+        </ion-card-header>
+        <ion-card-content>
+          <p>CPresc: {{cimaApi.cpresc}}</p>
+          <p>Afecta conduccion: {{cimaApi.conduc}}</p>
+          <p>Dosis: {{cimaApi.dosis}}</p>
+          <ion-item class="ion-margin">
+            <ion-textarea [(ngModel)]="miInput" label="Observacion" labelPlacement="floating" placeholder="Escribe"></ion-textarea>
+          </ion-item>
+          <ion-button *ngIf="cimaApi.docs.length >= 1" [href]="cimaApi.docs[0].url" target="_blank">Documentos</ion-button>
+        </ion-card-content>
+
+      </ion-card>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+

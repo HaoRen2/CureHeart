@@ -1,0 +1,7 @@
+{
+  "name": "cureHeart",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

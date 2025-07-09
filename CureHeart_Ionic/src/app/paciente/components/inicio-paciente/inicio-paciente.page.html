@@ -1,0 +1,48 @@
+<shared-header></shared-header>
+
+@if(paciente){
+  <ion-content  class="ion-padding">
+    <ion-grid>
+
+      <h4>Buenos días,  </h4>
+      <h3>{{paciente.nombre}}</h3>
+      <ion-button color="primary" [routerLink]="['/paciente/pedir-cita-paciente']" routerLinkActive="router-link-active" class="my-3" expand="block" color="primary">Pedir Cita</ion-button>
+      <ion-button color="primary" href="tel:112" class="my-3" expand="block" color="primary">Ambulancia</ion-button>
+
+      <p><ion-text>Próxima citas</ion-text></p>
+
+      <ion-card class="mt-2">
+        @if (paciente.citas.length >= 1) {
+          <ion-card-content>
+            <ion-row class="align-items-center">
+              <ion-col size="auto"> <ion-icon size="large" name="today"></ion-icon></ion-col>
+              <ion-text><h2>{{paciente.citas[0].especialidad}}</h2></ion-text>
+            </ion-row>
+
+            <ion-row>
+              <ion-col><ion-text>{{paciente.citas[0].date}}</ion-text></ion-col>
+              <ion-col><ion-icon name="person"></ion-icon> <ion-text>{{paciente.citas[0].nombreMedico}}</ion-text></ion-col>
+            </ion-row>
+
+            <ion-row >
+              <ion-col><ion-text class="justify-content-center"><h2>{{paciente.citas[0].time}}</h2></ion-text></ion-col>
+              <ion-col><ion-icon name="location"></ion-icon> <ion-text>Hospital Salud</ion-text></ion-col>
+            </ion-row>
+
+          </ion-card-content>
+        }@else {
+          <ion-card-content>
+            <ion-card-title>No tienes citas</ion-card-title>
+          </ion-card-content>
+        }
+
+
+      </ion-card>
+
+    </ion-grid>
+
+    <ion-button  (click)="logOut()" expand="block" color="primary">Cerrar Sessión</ion-button>
+
+  </ion-content>
+}
+

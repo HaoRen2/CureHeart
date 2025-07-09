@@ -1,0 +1,70 @@
+
+<ion-content class="ion-padding">
+  <form [formGroup]="myform" (ngSubmit)="login()" class="" autocomplete="off">
+    <div class="row mt-5">
+      <div class="text-center">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-img src="../../../../assets/image/logo.png"/>
+          </ion-thumbnail>
+
+          <h3>Cure<ion-text color="primary">Heart</ion-text></h3>
+        </ion-item>
+        <p class="text-center">La salud es la riqueza real</p>
+
+
+      </div>
+
+      <div class="col-12 p-2">
+        <span >Correo</span>
+        <ion-input
+          class=""
+          formControlName="email"
+          type="email"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Correo electrónico"
+        >
+        </ion-input>
+      </div>
+
+      <div class="col-12 p-2">
+        <span class="">Contraseña</span>
+        <ion-input
+          class=""
+          formControlName="password"
+          type="password"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Ingrese su contraseña"
+        >
+        </ion-input>
+        <a class="text-decoration-none" routerLink="/auth/cambiar"><ion-text color="danger">¿Has olvidado tu contraseña?</ion-text></a>
+      </div>
+      <div class="col-12 p-2">
+        <ion-checkbox labelPlacement="end">Recordar mi usuario</ion-checkbox>
+      </div>
+
+      <div class="col-12 text-center p-2">
+        <ion-button
+          class="btn-primary"
+          expand="block"
+          [disabled]="myform.invalid"
+          type="submit"
+        >
+          Login
+        </ion-button>
+
+        <p class="">¿No tienes cuenta?</p>
+        <a routerLink="/auth/register" class="mt-2"> Crear una aquí </a>
+      </div>
+    </div>
+  </form>
+</ion-content>
+<ion-toast
+    [isOpen]="isToastOpen"
+     position="middle"
+    message="Correo o password error"
+    [duration]="2000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>

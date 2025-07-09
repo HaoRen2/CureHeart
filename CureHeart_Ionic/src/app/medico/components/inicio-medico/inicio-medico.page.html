@@ -1,0 +1,45 @@
+<shared-header></shared-header>
+
+<ion-content class="ion-padding">
+  @if (medico) {
+    <ion-grid>
+
+      <h4>Buenos días,  </h4>
+      <h3>{{medico.nombre}}</h3>
+
+      <p class="mt-2"><ion-text>Próxima citas</ion-text></p>
+
+      <ion-card class="mt-2">
+        @if (medico.citas.length >= 1) {
+          <ion-card-content>
+          <ion-row class="align-items-center">
+            <ion-col size="auto"> <ion-icon size="large" name="today"></ion-icon></ion-col>
+            <ion-text><h2>{{medico.citas[0].especialidad}}</h2></ion-text>
+          </ion-row>
+
+          <ion-row>
+            <ion-col><ion-text>{{medico.citas[0].date}}</ion-text></ion-col>
+            <ion-col><ion-icon name="person"></ion-icon> <ion-text>{{medico.citas[0].nombrePaciente}}</ion-text></ion-col>
+          </ion-row>
+
+          <ion-row >
+            <ion-col><ion-text class="justify-content-center"><h2>{{medico.citas[0].time}}</h2></ion-text></ion-col>
+            <ion-col><ion-icon name="location"></ion-icon> <ion-text>Hospital Salud</ion-text></ion-col>
+          </ion-row>
+
+        </ion-card-content>
+        }@else {
+          <ion-card-content>
+            <ion-card-title>No tienes citas</ion-card-title>
+          </ion-card-content>
+        }
+
+
+      </ion-card>
+
+      </ion-grid>
+  }
+
+
+    <ion-button  (click)="logOut()" expand="block" color="primary">Cerrar Sessión</ion-button>
+</ion-content>

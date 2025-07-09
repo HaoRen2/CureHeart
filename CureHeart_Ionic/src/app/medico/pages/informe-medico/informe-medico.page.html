@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/medico/tab"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">Informe</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="opacity: 0;">Invisible</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+@if (medico){
+  <ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col><h4>Pruebas e informes</h4></ion-col>
+        <ion-col size="auto"><ion-icon size="large" name="swap-vertical"></ion-icon></ion-col>
+      </ion-row>
+      <ion-label>Mis informes {{informes.length}}</ion-label>
+    </ion-grid>
+    <ion-grid>
+
+      @for (item of informes; track $index) {
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="text-center">{{item.name}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-text> <ion-icon name="person"></ion-icon>{{item.autor}}</ion-text>
+                </ion-item>
+              </ion-col>
+
+              <ion-col>
+                <ion-item>
+                  <ion-text><ion-icon name="time-outline"></ion-icon>{{item.date | date: 'mediumDate'}}</ion-text>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="text-center">
+              <ion-col>
+                <ion-button (click)="descargarPdf(item)">DESCARGAR</ion-button>
+              </ion-col>
+            </ion-row>
+
+          </ion-card-content>
+        </ion-card>
+      }
+
+    </ion-grid>
+
+    <form class="fixed w-full">
+      <ion-item >
+        <input type="file" (change)="onFileSelected($event)" accept=".pdf">
+        <ion-button (click)="enviarInforme()">Subir Archivo</ion-button>
+      </ion-item>
+    </form>
+
+  </ion-content>
+}
+
+

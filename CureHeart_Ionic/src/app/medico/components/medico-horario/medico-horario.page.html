@@ -1,0 +1,75 @@
+<shared-header></shared-header>
+
+@if (medico) {
+  <ion-content class="ion-padding">
+    <ion-toolbar>
+      <ion-title>Dias</ion-title>
+    </ion-toolbar>
+    <ion-segment class="mt-1" [scrollable]="true">
+      <ion-row scrollX="true" class="scroll-items">
+        @for (item of diaHastaFinalDeMes; track $index) {
+        <ion-col>
+          <ion-text>{{item | date: 'EEE' | titlecase}}</ion-text>
+          @if (item.getDay() === 6 || item.getDay() === 0) {
+            <ion-button [disabled]="true" fill="clear" shape="round">
+              <ion-text>{{
+                item.getDate()
+              }}</ion-text>
+            </ion-button>
+          }@else {
+            <ion-button (click)="cogerDia(item.getDate())"  fill="clear" shape="round">
+              <ion-text>{{
+                item.getDate()
+              }}</ion-text>
+            </ion-button>
+          }
+
+        </ion-col>
+      }
+      </ion-row>
+  </ion-segment>
+
+    <ion-title>Citas Solicitado: {{citas.length}}</ion-title>
+
+    <ion-grid>
+      @for (item of citas; track $index) {
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{item.especialidad}}</ion-card-title>
+          </ion-card-header>
+      <ion-card-content>
+
+            <ion-row>
+              <ion-col><ion-text>{{item.date}}</ion-text></ion-col>
+              <ion-col><ion-icon name="person"></ion-icon> <ion-text>{{item.nombrePaciente}}</ion-text></ion-col>
+            </ion-row>
+
+            <ion-row >
+              <ion-col><ion-text class="justify-content-center"><h2>{{item.time}}</h2></ion-text></ion-col>
+              <ion-col><ion-icon name="location"></ion-icon> <ion-text>Hospital Salud</ion-text></ion-col>
+            </ion-row>
+
+            <ion-accordion-group>
+              <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+                <ion-item slot="header" color="light">
+                  <ion-label>Observaciones</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">{{item.descripcion}}</div>
+              </ion-accordion>
+              </ion-accordion-group>
+
+
+        <ion-row class="text-center">
+          <ion-col><ion-button (click)="presentAlert(item.id)" color="primary" fill="clear">Cumplido</ion-button></ion-col>
+        </ion-row>
+      </ion-card-content>
+
+    </ion-card>
+
+      }
+
+    </ion-grid>
+
+  </ion-content>
+}
+
