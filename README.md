@@ -3,7 +3,7 @@
 Hola, soy **Lei Wang**. 
 **CureHeart** es una aplicación híbrida de gestión de salud. Permite a pacientes, médicos y administradores gestionar citas, medicamentos e informes médicos de forma online.
 
-**El objetivo**: facilitar la comunicación y gestión online entre hospitales, médicos y pacientes[cite: 40].
+**El objetivo**: facilitar la comunicación y gestión online entre hospitales, médicos y pacientes.
 <br>
 ## 🎥 Demostración Rápida
 
@@ -29,11 +29,11 @@ Video para demostrar el funcionamiento de la aplicación. **Haz clic en la image
 
 Este proyecto me ha permitido aplicar y demostrar mis conocimientos en:
 
-* [cite_start]✨ **Desarrollo Backend**: Creación de una API RESTful segura con **NestJS** (Node.js) y TypeScript[cite: 109, 117].
-* [cite_start]📱 **Desarrollo Frontend Móvil**: Creación de una aplicación híbrida para Android con **Ionic** y **Angular**[cite: 108, 115].
-* [cite_start]🗃️ **Bases de Datos**: Diseño e implementación de una base de datos relacional (**MySQL**) [cite: 110] [cite_start]gestionada con **Docker**[cite: 113, 126].
-* [cite_start]🔗 **Integración de APIs**: Consumo de APIs externas para enriquecer la aplicación con datos reales[cite: 36].
-* [cite_start]🔐 **Seguridad**: Implementación de autenticación de usuarios y encriptación de contraseñas con **bcrypt**[cite: 118].
+* [cite_start]✨ **Desarrollo Backend**: Creación de una API RESTful segura con **NestJS** (Node.js) y TypeScript.
+* [cite_start]📱 **Desarrollo Frontend Móvil**: Creación de una aplicación híbrida para Android con **Ionic** y **Angular**.
+* [cite_start]🗃️ **Bases de Datos**: Diseño e implementación de una base de datos relacional (**MySQL**) gestionada con **Docker**.
+* [cite_start]🔗 **Integración de APIs**: Consumo de APIs externas para enriquecer la aplicación con datos reales.
+* [cite_start]🔐 **Seguridad**: Implementación de autenticación de usuarios y encriptación de contraseñas con **bcrypt**.
   
 ## 🛠️ Instrucciones de despliegue
 
